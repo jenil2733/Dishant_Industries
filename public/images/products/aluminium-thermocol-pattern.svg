@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgThermo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="foamWhite" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgThermo)"/>
+  <!-- Multi-port Engine Manifold Thermocol Pattern -->
+  <g transform="translate(400, 300)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="140" rx="220" ry="40" fill="#000000" opacity="0.5"/>
+    <!-- Main Evaporative Cluster Runner -->
+    <path d="M -180,60 C -120,-30 -40,-60 0,-60 C 40,-60 120,-30 180,60" fill="none" stroke="url(#foamWhite)" stroke-width="36" stroke-linecap="round"/>
+    <!-- 4 Manifold Ports -->
+    <circle cx="-150" cy="40" r="28" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="4"/>
+    <circle cx="-50" cy="0" r="28" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="4"/>
+    <circle cx="50" cy="0" r="28" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="4"/>
+    <circle cx="150" cy="40" r="28" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="4"/>
+    <!-- Evaporative Foam Texture Dots -->
+    <circle cx="-150" cy="40" r="14" fill="#94a3b8" opacity="0.4"/>
+    <circle cx="-50" cy="0" r="14" fill="#94a3b8" opacity="0.4"/>
+    <circle cx="50" cy="0" r="14" fill="#94a3b8" opacity="0.4"/>
+    <circle cx="150" cy="40" r="14" fill="#94a3b8" opacity="0.4"/>
+    <!-- Central Riser Feeder -->
+    <path d="M 0,-60 L 0,-140" stroke="#ea580c" stroke-width="16" stroke-linecap="round"/>
+    <polygon points="0,-160 -24,-135 24,-135" fill="#f97316"/>
+  </g>
+  <!-- Technical Spec Watermark Header -->
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="220" height="28" rx="6" fill="#6366f1" opacity="0.3"/>
+    <text x="12" y="19" fill="#a5b4fc" font-family="sans-serif" font-size="12" font-weight="bold">LOST FOAM THERMOCOL PATTERN</text>
+  </g>
+  <g transform="translate(760, 50)">
+    <text x="0" y="20" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="end">FULL-MOULD CASTING</text>
+  </g>
+</svg>

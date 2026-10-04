@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgIngot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="ingotSilver" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="50%" stop-color="#cbd5e1"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+    <linearGradient id="ingotSide" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgIngot)"/>
+  <!-- Stack of Aluminium Remelt Ingots (Trapezoidal notched bars) -->
+  <g transform="translate(400, 360)">
+    <!-- Base Pallet -->
+    <rect x="-240" y="80" width="480" height="30" rx="4" fill="#78350f" opacity="0.8"/>
+    
+    <!-- Tier 1: Bottom 3 ingots -->
+    <!-- Left -->
+    <polygon points="-220,70 -100,70 -80,40 -200,40" fill="url(#ingotSilver)" stroke="#e2e8f0" stroke-width="1.5"/>
+    <polygon points="-220,70 -200,40 -200,20 -220,50" fill="url(#ingotSide)"/>
+    <!-- Mid -->
+    <polygon points="-70,70 50,70 70,40 -50,40" fill="url(#ingotSilver)" stroke="#e2e8f0" stroke-width="1.5"/>
+    <!-- Right -->
+    <polygon points="80,70 200,70 220,40 100,40" fill="url(#ingotSilver)" stroke="#e2e8f0" stroke-width="1.5"/>
+
+    <!-- Tier 2: Middle 2 cross ingots -->
+    <polygon points="-160,20 160,20 130,-15 -130,-15" fill="url(#ingotSilver)" stroke="#ffffff" stroke-width="1.5"/>
+    <polygon points="-160,20 -130,-15 -130,-35 -160,0" fill="url(#ingotSide)"/>
+
+    <!-- Tier 3: Top single ingot with central notch -->
+    <polygon points="-120,-40 120,-40 100,-75 -100,-75" fill="url(#ingotSilver)" stroke="#ffffff" stroke-width="2"/>
+    <line x1="0" y1="-40" x2="0" y2="-75" stroke="#475569" stroke-width="3"/>
+    
+    <!-- Dishant Brand Stamp on Top Ingot -->
+    <g transform="translate(0, -58)">
+      <text x="0" y="4" fill="#1e293b" font-family="monospace" font-size="12" font-weight="900" letter-spacing="2" text-anchor="middle">DISHANT AL-INGOT</text>
+    </g>
+  </g>
+  <!-- Technical Spec Watermark Header -->
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="220" height="28" rx="6" fill="#ea580c" opacity="0.3"/>
+    <text x="12" y="19" fill="#fb923c" font-family="sans-serif" font-size="12" font-weight="bold">ALUMINIUM COMMERCIAL INGOTS</text>
+  </g>
+  <g transform="translate(760, 50)">
+    <text x="0" y="20" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="end">5-7 KG NOTCHED BARS</text>
+  </g>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgPatt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </linearGradient>
+    <linearGradient id="metalPlate" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+    <linearGradient id="matchpattern" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgPatt)"/>
+  <!-- Foundry Matchplate Base Frame -->
+  <g transform="translate(400, 310)">
+    <!-- Base Plate Shadow -->
+    <polygon points="-280,60 0,160 280,60 0,-40" fill="#000000" opacity="0.5"/>
+    <!-- Plate Top -->
+    <polygon points="0,-120 260,-20 0,80 -260,-20" fill="url(#metalPlate)" stroke="#e2e8f0" stroke-width="2"/>
+    <!-- Guide Pin Bushings (Flask Alignment) -->
+    <circle cx="-230" cy="-20" r="14" fill="#334155" stroke="#f8fafc" stroke-width="3"/>
+    <circle cx="230" cy="-20" r="14" fill="#334155" stroke="#f8fafc" stroke-width="3"/>
+    <circle cx="-230" cy="-20" r="6" fill="#0f172a"/>
+    <circle cx="230" cy="-20" r="6" fill="#0f172a"/>
+    <!-- Central Pattern Mould Contours (Pump Impeller / Housing Pattern) -->
+    <!-- Runner & Gating System -->
+    <path d="M 0,-80 L 0,40" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+    <path d="M -90,-20 L 90,-20" stroke="#f97316" stroke-width="6" stroke-linecap="round"/>
+    <!-- Left Cavity Mould -->
+    <g transform="translate(-80, -20)">
+      <polygon points="0,-35 45,-10 0,15 -45,-10" fill="url(#matchpattern)" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="0" cy="-10" r="16" fill="#475569" stroke="#cbd5e1" stroke-width="2"/>
+    </g>
+    <!-- Right Cavity Mould -->
+    <g transform="translate(80, -20)">
+      <polygon points="0,-35 45,-10 0,15 -45,-10" fill="url(#matchpattern)" stroke="#ffffff" stroke-width="2"/>
+      <circle cx="0" cy="-10" r="16" fill="#475569" stroke="#cbd5e1" stroke-width="2"/>
+    </g>
+  </g>
+  <!-- Technical Spec Watermark Header -->
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="200" height="28" rx="6" fill="#ea580c" opacity="0.3"/>
+    <text x="12" y="19" fill="#fb923c" font-family="sans-serif" font-size="12" font-weight="bold">FOUNDRY MATCHPLATE PATTERN</text>
+  </g>
+  <g transform="translate(760, 50)">
+    <text x="0" y="20" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="end">±0.2mm TOLERANCE</text>
+  </g>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="blockTop" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="50%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="blockFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="50%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="blockSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+    <linearGradient id="orangeGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgGrad)"/>
+  <!-- Workshop floor grid -->
+  <g opacity="0.15" stroke="#94a3b8" stroke-width="1">
+    <line x1="50" y1="450" x2="750" y2="450"/>
+    <line x1="80" y1="480" x2="720" y2="480"/>
+    <line x1="120" y1="520" x2="680" y2="520"/>
+    <line x1="200" y1="380" x2="100" y2="550"/>
+    <line x1="400" y1="380" x2="400" y2="550"/>
+    <line x1="600" y1="380" x2="700" y2="550"/>
+  </g>
+  <!-- Cast Aluminium Block (Isometric 3D) -->
+  <g transform="translate(400, 310)">
+    <!-- Shadow -->
+    <polygon points="-240,110 0,190 240,110 0,40" fill="#000000" opacity="0.6"/>
+    <!-- Top Face -->
+    <polygon points="0,-120 220,-30 0,60 -220,-30" fill="url(#blockTop)" stroke="#f1f5f9" stroke-width="2"/>
+    <!-- Machined surface lines -->
+    <path d="M -180,-15 L -20,50 M -140,0 L 20,65 M -100,15 L 60,80" stroke="#94a3b8" stroke-width="1" opacity="0.4"/>
+    <!-- Front Left Face -->
+    <polygon points="-220,-30 0,60 0,160 -220,70" fill="url(#blockFront)" stroke="#94a3b8" stroke-width="1.5"/>
+    <!-- Front Right Face -->
+    <polygon points="0,60 220,-30 220,70 0,160" fill="url(#blockSide)" stroke="#64748b" stroke-width="1.5"/>
+    <!-- Metallic chamfers / edge highlights -->
+    <line x1="0" y1="-120" x2="0" y2="60" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+    <line x1="-220" y1="-30" x2="0" y2="60" stroke="#ffffff" stroke-width="2" opacity="0.9"/>
+    <!-- Foundry Heat / Batch Stamp -->
+    <g transform="translate(-110, 30) rotate(22)">
+      <rect x="0" y="0" width="80" height="24" rx="3" fill="#1e293b" opacity="0.8"/>
+      <text x="40" y="16" fill="#f8fafc" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">AL-LM25</text>
+    </g>
+    <!-- Right side inspection markings -->
+    <g transform="translate(60, 30) rotate(-22)">
+      <rect x="0" y="0" width="70" height="20" rx="2" fill="#0f172a" opacity="0.7"/>
+      <text x="35" y="14" fill="#fb923c" font-family="monospace" font-size="10" font-weight="bold" text-anchor="middle">DISHANT</text>
+    </g>
+  </g>
+  <!-- Technical Spec Watermark Header -->
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="180" height="28" rx="6" fill="#0369a1" opacity="0.3"/>
+    <text x="12" y="19" fill="#38bdf8" font-family="sans-serif" font-size="12" font-weight="bold">SOLID CAST TOOLING BLOCK</text>
+  </g>
+  <g transform="translate(640, 50)">
+    <text x="120" y="20" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="end">MAX 500 KG</text>
+  </g>
+</svg>

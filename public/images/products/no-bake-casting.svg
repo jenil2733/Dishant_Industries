@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bgNoBake" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="castIron" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="50%" stop-color="#94a3b8"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bgNoBake)"/>
+  <!-- Heavy Industrial Compressor Housing -->
+  <g transform="translate(400, 310)">
+    <!-- Shadow -->
+    <ellipse cx="0" cy="140" rx="240" ry="45" fill="#000000" opacity="0.6"/>
+    <!-- Outer Flanged Enclosure -->
+    <path d="M -180,-80 L 180,-80 L 220,100 L -220,100 Z" fill="url(#castIron)" stroke="#e2e8f0" stroke-width="2"/>
+    <!-- Cooling Fins -->
+    <line x1="-160" y1="-60" x2="160" y2="-60" stroke="#334155" stroke-width="4"/>
+    <line x1="-170" y1="-30" x2="170" y2="-30" stroke="#334155" stroke-width="4"/>
+    <line x1="-180" y1="0" x2="180" y2="0" stroke="#334155" stroke-width="4"/>
+    <line x1="-190" y1="30" x2="190" y2="30" stroke="#334155" stroke-width="4"/>
+    <line x1="-200" y1="60" x2="200" y2="60" stroke="#334155" stroke-width="4"/>
+    <!-- Center Bore Flange -->
+    <circle cx="0" cy="0" r="60" fill="#334155" stroke="#f8fafc" stroke-width="6"/>
+    <circle cx="0" cy="0" r="35" fill="#0f172a" stroke="#cbd5e1" stroke-width="2"/>
+    <!-- Bolt Circle (6 perimeter bolts) -->
+    <circle cx="0" cy="-48" r="6" fill="#f8fafc"/>
+    <circle cx="42" cy="-24" r="6" fill="#f8fafc"/>
+    <circle cx="42" cy="24" r="6" fill="#f8fafc"/>
+    <circle cx="0" cy="48" r="6" fill="#f8fafc"/>
+    <circle cx="-42" cy="24" r="6" fill="#f8fafc"/>
+    <circle cx="-42" cy="-24" r="6" fill="#f8fafc"/>
+  </g>
+  <!-- Technical Spec Watermark Header -->
+  <g transform="translate(40, 50)">
+    <rect x="0" y="0" width="210" height="28" rx="6" fill="#0d9488" opacity="0.3"/>
+    <text x="12" y="19" fill="#2dd4bf" font-family="sans-serif" font-size="12" font-weight="bold">NO-BAKE RESIN SAND CASTING</text>
+  </g>
+  <g transform="translate(760, 50)">
+    <text x="0" y="20" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="end">HEAVY DENSITY ENVELOPE</text>
+  </g>
+</svg>
