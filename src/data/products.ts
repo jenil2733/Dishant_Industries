@@ -29,10 +29,9 @@ export const PRODUCTS: Product[] = [
     category: "Casting",
     shortDesc: "Dense, pore-free cast aluminium blocks tailored for heavy industrial tooling and precision machining.",
     description: "Our premier cast aluminium blocks are manufactured with rigorous degassing and fluxing processes to ensure uniform metallurgical density, dimensional consistency, and defect-free internal grain structure. Ideal for CNC machining, mold bases, and structural industrial components.",
-    image: "/images/products/aluminium-block.png",
+    image: "/images/products/aluminium-block.svg",
     fallbackImage: "/images/products/aluminium-block.svg",
     gallery: [
-      "/images/products/aluminium-block.png",
       "/images/products/aluminium-block.svg"
     ],
     applications: [
@@ -55,10 +54,9 @@ export const PRODUCTS: Product[] = [
     category: "Pattern & Moulding",
     shortDesc: "High-durability master pattern castings with micro-tolerance repeatability for foundry matchplates.",
     description: "Engineered specifically for repeat sand casting foundry operations, our aluminium patterns offer exceptional dimensional endurance, high resistance to sand abrasion, and ultra-smooth surface draft angles. Cast with low-shrinkage alloy formulations to ensure pattern integrity over thousands of impressions.",
-    image: "/images/products/aluminium-pattern-casting.png",
+    image: "/images/products/aluminium-pattern-casting.svg",
     fallbackImage: "/images/products/aluminium-pattern-casting.svg",
     gallery: [
-      "/images/products/aluminium-pattern-casting.png",
       "/images/products/aluminium-pattern-casting.svg"
     ],
     applications: [
@@ -81,10 +79,9 @@ export const PRODUCTS: Product[] = [
     category: "Pattern & Moulding",
     shortDesc: "Lost-foam and full-mould thermocol pattern casting for complex single-piece geometry without parting lines.",
     description: "Specialized thermocol (expanded polystyrene) pattern casting technology enabling intricate undercuts, complex hollow corridors, and single-piece monolithic castings without traditional parting draft restrictions. Eliminates core-assembly errors and minimizes machining allowances.",
-    image: "/images/products/aluminium-thermocol-pattern.png",
+    image: "/images/products/aluminium-thermocol-pattern.svg",
     fallbackImage: "/images/products/aluminium-thermocol-pattern.svg",
     gallery: [
-      "/images/products/aluminium-thermocol-pattern.png",
       "/images/products/aluminium-thermocol-pattern.svg"
     ],
     applications: [
@@ -107,10 +104,9 @@ export const PRODUCTS: Product[] = [
     category: "Casting",
     shortDesc: "Chemically bonded resin sand casting delivering superior dimensional accuracy and heavy section density.",
     description: "Our no-bake (furane resin / chemically bonded sand) casting line produces large-scale, heavy-section aluminium components with exceptional surface finish and tight dimensional control. The rigid mould envelope resists mold-wall movement during pouring, eliminating hot tearing and shrinkage defects.",
-    image: "/images/products/no-bake-casting.png",
+    image: "/images/products/no-bake-casting.svg",
     fallbackImage: "/images/products/no-bake-casting.svg",
     gallery: [
-      "/images/products/no-bake-casting.png",
       "/images/products/no-bake-casting.svg"
     ],
     applications: [
@@ -133,10 +129,9 @@ export const PRODUCTS: Product[] = [
     category: "Ingots & Raw Material",
     shortDesc: "Reliable commercial grade remelt ingots formulated for consistent fluidity and cost-effective casting.",
     description: "Standard commercial grade remelt ingots produced through controlled reverberatory melting and rigorous dross skimming. Provides dependable tensile strength, good machinability, and clean melting characteristics for secondary foundries and die-casters across Rajkot and Western India.",
-    image: "/images/products/aluminium-commercial-ingots.png",
+    image: "/images/products/aluminium-commercial-ingots.svg",
     fallbackImage: "/images/products/aluminium-commercial-ingots.svg",
     gallery: [
-      "/images/products/aluminium-commercial-ingots.png",
       "/images/products/aluminium-commercial-ingots.svg"
     ],
     applications: [
@@ -159,10 +154,9 @@ export const PRODUCTS: Product[] = [
     category: "Ingots & Raw Material",
     shortDesc: "High-ductility low-alloy soft aluminium ingots engineered for extrusion, rolling, and drawing.",
     description: "Refined soft aluminium ingots with exceptionally low iron and trace element contaminants. Formulated to deliver high elongation, superior thermal conductivity, and effortless workability during cold-heading, deep drawing, and wire-drawing applications.",
-    image: "/images/products/aluminium-soft-ingots.png",
+    image: "/images/products/aluminium-soft-ingots.svg",
     fallbackImage: "/images/products/aluminium-soft-ingots.svg",
     gallery: [
-      "/images/products/aluminium-soft-ingots.png",
       "/images/products/aluminium-soft-ingots.svg"
     ],
     applications: [
@@ -185,10 +179,9 @@ export const PRODUCTS: Product[] = [
     category: "Scrap & Recycling",
     shortDesc: "Segregated, clean 6063 architectural and structural extrusion scrap ready for remelting.",
     description: "Premium segregated 6063 aluminium scrap consisting of clean architectural extrusions, window profile cutoffs, and structural beams. Thoroughly inspected for the absence of iron screws, thermal-break plastics, and contaminants to ensure maximum remelt recovery and minimal slag.",
-    image: "/images/products/aluminium-6063-extrusion-scrap.png",
+    image: "/images/products/aluminium-6063-extrusion-scrap.svg",
     fallbackImage: "/images/products/aluminium-6063-extrusion-scrap.svg",
     gallery: [
-      "/images/products/aluminium-6063-extrusion-scrap.png",
       "/images/products/aluminium-6063-extrusion-scrap.svg"
     ],
     applications: [
@@ -211,10 +204,9 @@ export const PRODUCTS: Product[] = [
     category: "Scrap & Recycling",
     shortDesc: "High-grade aluminium TT (Tense/Tabor) scrap segregated for optimal recovery and secondary refining.",
     description: "Dense mixed aluminium casting and sheet scrap rigorously tested for minimal attachment percentage. Suitable for secondary refiners, large-scale crucible furnaces, and master alloy manufacturing facilities seeking consistent molten metal yields.",
-    image: "/images/products/aluminium-tt-scrap.png",
+    image: "/images/products/aluminium-tt-scrap.svg",
     fallbackImage: "/images/products/aluminium-tt-scrap.svg",
     gallery: [
-      "/images/products/aluminium-tt-scrap.png",
       "/images/products/aluminium-tt-scrap.svg"
     ],
     applications: [
@@ -237,10 +229,9 @@ export const PRODUCTS: Product[] = [
     category: "Ingots & Raw Material",
     shortDesc: "High-strength zinc-magnesium aerospace grade aluminium alloy ingots for extreme load applications.",
     description: "Advanced 7000-series zinc-magnesium alloy ingots formulated for ultra-high mechanical yield strength, superior fatigue endurance, and hardness comparable to structural steel while retaining light weight. Specially refined with precise master alloy additions.",
-    image: "/images/products/aluminium-7000-series-ingots.png",
+    image: "/images/products/aluminium-7000-series-ingots.svg",
     fallbackImage: "/images/products/aluminium-7000-series-ingots.svg",
     gallery: [
-      "/images/products/aluminium-7000-series-ingots.png",
       "/images/products/aluminium-7000-series-ingots.svg"
     ],
     applications: [
@@ -263,10 +254,9 @@ export const PRODUCTS: Product[] = [
     category: "Scrap & Recycling",
     shortDesc: "Sorted automotive cast aluminium scrap including engine blocks, transmission cases, and wheel cutouts.",
     description: "High-silicon automotive aluminium scrap carefully stripped of steel cylinder liners, bearing races, and foreign bushings. Excellent feedstock for producing secondary LM24, LM25, and ADC12 casting ingots with proven recovery ratios.",
-    image: "/images/products/aluminium-automobile-scrap.png",
+    image: "/images/products/aluminium-automobile-scrap.svg",
     fallbackImage: "/images/products/aluminium-automobile-scrap.svg",
     gallery: [
-      "/images/products/aluminium-automobile-scrap.png",
       "/images/products/aluminium-automobile-scrap.svg"
     ],
     applications: [

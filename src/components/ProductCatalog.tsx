@@ -1,6 +1,6 @@
 import React from "react";
 import { PRODUCTS, Product } from "../data/products";
-import { Eye, ArrowRight, ShieldCheck } from "lucide-react";
+import { Eye, ArrowRight, ShieldCheck, RotateCw } from "lucide-react";
 
 interface ProductCatalogProps {
   onSelectProduct?: (product: Product) => void;
@@ -68,11 +68,19 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({ onSelectProduct 
                   </span>
                 </div>
 
-                {/* HOVER SPECIFICATIONS BADGE OVERLAY */}
-                <div className="absolute inset-0 bg-slate-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end justify-center pb-3 pointer-events-none z-10">
+                {/* 360° 3D Interactive Model Available Chip */}
+                <div className="absolute top-3 right-3 z-10">
+                  <span className="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-slate-800 bg-white/95 backdrop-blur-xs px-2 py-0.5 rounded border border-slate-200 shadow-2xs group-hover:border-[#f24b00]/40 transition-colors">
+                    <RotateCw className="w-2.5 h-2.5 text-[#f24b00]" />
+                    <span>360° 3D</span>
+                  </span>
+                </div>
+
+                {/* HOVER SPECIFICATIONS & 3D MODEL BADGE OVERLAY */}
+                <div className="absolute inset-0 bg-slate-950/25 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end justify-center pb-3 pointer-events-none z-10">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-white bg-[#1b365d]/95 rounded-lg shadow-md border border-white/20 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-200">
-                    <Eye className="w-3.5 h-3.5 text-[#ffa533]" />
-                    <span>View Specifications</span>
+                    <RotateCw className="w-3.5 h-3.5 text-[#ffa533]" />
+                    <span>View 360° 3D Model</span>
                   </span>
                 </div>
 

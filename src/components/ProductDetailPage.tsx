@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { 
   ArrowLeft, 
   MessageSquare, 
@@ -7,26 +7,28 @@ import {
   ShieldCheck, 
   Flame, 
   Layers, 
-  Sliders, 
-  Sparkles,
-  ArrowRight
+  Sliders,
+  RotateCw,
+  Image as ImageIcon,
+  Sparkles
 } from "lucide-react";
-import { Product, PRODUCTS } from "../data/products";
+import { Product } from "../data/products";
 import { COMPANY } from "../data/company";
+import { Product3DViewer } from "./Product3DViewer";
 
 interface ProductDetailPageProps {
   product: Product;
   onBack: () => void;
-  onSelectProduct: (product: Product) => void;
-  onRequestQuote: (productName: string) => void;
+  onSelectProduct?: (product: Product) => void;
+  onRequestQuote?: (productName: string) => void;
 }
 
 export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   product,
   onBack,
-  onSelectProduct,
-  onRequestQuote,
 }) => {
+  const [viewMode, setViewMode] = useState<"3d" | "photo">("3d");
+
   // Scroll to top on mount or product change
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -37,14 +39,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
   );
   const whatsappProductLink = `https://wa.me/${COMPANY.phoneRaw}?text=${whatsappMessage}`;
 
-  const relatedProducts = PRODUCTS.filter((p) => p.id !== product.id).slice(0, 3);
-
   return (
-    <div className="pt-36 sm:pt-40 lg:pt-44 pb-20 bg-slate-50 min-h-screen">
+    <div className="pt-[109px] md:pt-[138px] pb-20 bg-slate-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* TOP NAVIGATION BREADCRUMB & BACK ACTION */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-200">
+        <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-slate-200">
           <button
             onClick={onBack}
             className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-bold text-[#1b365d] bg-white hover:bg-slate-100 border border-slate-200 rounded-lg shadow-2xs transition-all hover:-translate-x-0.5 cursor-pointer"
@@ -69,51 +69,50 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         </div>
 
         {/* MAIN PRODUCT SHOWCASE GRID */}
-        <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="mt-7 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* LEFT COLUMN: HIGH-RES ASSET & CERTIFICATION BADGES (5 COLS) */}
-          <div className="lg:col-span-5 flex flex-col gap-5">
-            <div className="relative rounded-2xl bg-white border border-slate-200 shadow-md overflow-hidden">
-              <div className="relative aspect-4/3 w-full bg-slate-900">
+          {/* LEFT COLUMN: 3D 360° MODEL / HIGH-RES ASSET & CERTIFICATION BADGES (5 COLS) */}
+          <div className="lg:col-span-5 flex flex-col gap-4">
+            
+            {/* VIEW MODE TOGGLE (3D 360° MODEL vs HIGH-RES PHOTO) */}
+            <div className="flex items-center gap-1.5 p-1 bg-slate-200/90 rounded-xl">
+              <button
+                onClick={() => setViewMode("3d")}
+                className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  viewMode === "3d"
+                    ? "bg-[#1b365d] text-white shadow-xs"
+                    : "text-slate-700 hover:text-slate-900 hover:bg-white/60"
+                }`}
+              >
+                <RotateCw className="w-3.5 h-3.5 text-[#ffa533]" />
+                <span>3D Model (360° View)</span>
+              </button>
+
+              <button
+                onClick={() => setViewMode("photo")}
+                className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                  viewMode === "photo"
+                    ? "bg-[#1b365d] text-white shadow-xs"
+                    : "text-slate-700 hover:text-slate-900 hover:bg-white/60"
+                }`}
+              >
+                <ImageIcon className="w-3.5 h-3.5 text-blue-400" />
+                <span>Foundry Photo</span>
+              </button>
+            </div>
+
+            {/* VISUAL SHOWCASE: INTERACTIVE 3D MODEL OR HIGH-RES PHOTO */}
+            {viewMode === "3d" ? (
+              <Product3DViewer product={product} />
+            ) : (
+              <div className="relative rounded-2xl bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-slate-800 shadow-xl overflow-hidden aspect-4/3 flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    const target = e.currentTarget;
-                    if (target.src.endsWith('.png')) {
-                      target.src = product.fallbackImage || `/images/products/${product.id}.svg`;
-                    }
-                  }}
+                  className="w-full h-full object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
-
-                {/* CATEGORY CHIP */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="text-xs font-bold tracking-wider text-[#1b365d] bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-md border border-blue-100 shadow-sm">
-                    {product.category}
-                  </span>
-                </div>
-
-                {/* CATALOG ID OVERLAY */}
-                <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-white">
-                  <div>
-                    <span className="text-[10px] text-slate-300 uppercase tracking-widest block font-mono">
-                      Catalog Identifier
-                    </span>
-                    <span className="text-xs font-mono font-bold">
-                      DIS-{product.id.toUpperCase()}
-                    </span>
-                  </div>
-                  <div className="text-right">
-                    <span className="text-[10px] font-bold bg-[#f24b00] px-2 py-0.5 rounded text-white font-mono">
-                      Verified Batch
-                    </span>
-                  </div>
-                </div>
               </div>
-            </div>
+            )}
 
             {/* FOUNDRY QUALITY ASSURANCE CARD */}
             <div className="rounded-xl bg-white border border-slate-200 p-5 shadow-xs space-y-3">
@@ -266,69 +265,6 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
           </div>
 
-        </div>
-
-        {/* EXPLORE OTHER PRODUCTS FROM DISHANT INDUSTRIES */}
-        <div className="mt-16 pt-12 border-t border-slate-200">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-            <div>
-              <div className="text-xs font-bold uppercase tracking-wider text-[#f24b00] mb-1">
-                More Casting Lines
-              </div>
-              <h2 className="font-display text-2xl font-black text-[#1b365d]">
-                Explore Other Products
-              </h2>
-            </div>
-
-            <button
-              onClick={onBack}
-              className="inline-flex items-center gap-2 text-xs font-bold text-[#1b365d] hover:text-[#f24b00] transition-colors cursor-pointer"
-            >
-              <span>View Full 10-Product Catalog</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {relatedProducts.map((relProduct) => (
-              <div
-                key={relProduct.id}
-                onClick={() => onSelectProduct(relProduct)}
-                className="group rounded-xl bg-white border border-slate-200 overflow-hidden cursor-pointer hover:shadow-lg hover:border-[#1b365d]/40 transition-all duration-300"
-              >
-                <div className="relative aspect-16/10 w-full bg-slate-900 overflow-hidden">
-                  <img
-                    src={relProduct.image}
-                    alt={relProduct.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      if (target.src.endsWith('.png')) {
-                        target.src = relProduct.fallbackImage || `/images/products/${relProduct.id}.svg`;
-                      }
-                    }}
-                  />
-                  <div className="absolute top-2.5 left-2.5">
-                    <span className="text-[10px] font-bold text-[#1b365d] bg-white/95 px-2 py-0.5 rounded shadow-xs">
-                      {relProduct.category}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-sm text-[#1b365d] group-hover:text-[#f24b00] transition-colors truncate">
-                    {relProduct.name}
-                  </h3>
-                  <p className="mt-1 text-xs text-slate-500 line-clamp-2">
-                    {relProduct.shortDesc}
-                  </p>
-                  <div className="mt-3 flex items-center justify-between text-[11px] text-[#f24b00] font-bold">
-                    <span>View Specifications</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
       </div>

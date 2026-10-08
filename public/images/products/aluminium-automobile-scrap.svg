@@ -28,12 +28,4 @@
     <circle cx="40" cy="10" r="12" fill="#475569"/>
     <circle cx="120" cy="10" r="12" fill="#475569"/>
   </g>
-  <!-- Technical Spec Watermark Header -->
-  <g transform="translate(40, 50)">
-    <rect x="0" y="0" width="230" height="28" rx="6" fill="#e11d48" opacity="0.3"/>
-    <text x="12" y="19" fill="#fb7185" font-family="sans-serif" font-size="12" font-weight="bold">AUTOMOTIVE CAST SCRAP</text>
-  </g>
-  <g transform="translate(760, 50)">
-    <text x="0" y="20" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="end">ENGINE &amp; GEARBOX CAST</text>
-  </g>
 </svg>

@@ -34,12 +34,4 @@
     <circle cx="-42" cy="24" r="6" fill="#f8fafc"/>
     <circle cx="-42" cy="-24" r="6" fill="#f8fafc"/>
   </g>
-  <!-- Technical Spec Watermark Header -->
-  <g transform="translate(40, 50)">
-    <rect x="0" y="0" width="210" height="28" rx="6" fill="#0d9488" opacity="0.3"/>
-    <text x="12" y="19" fill="#2dd4bf" font-family="sans-serif" font-size="12" font-weight="bold">NO-BAKE RESIN SAND CASTING</text>
-  </g>
-  <g transform="translate(760, 50)">
-    <text x="0" y="20" fill="#94a3b8" font-family="monospace" font-size="12" text-anchor="end">HEAVY DENSITY ENVELOPE</text>
-  </g>
 </svg>
