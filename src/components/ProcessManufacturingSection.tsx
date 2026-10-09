@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Flame, Play, Pause, CheckCircle2, ArrowRight, ShieldCheck, Cpu, Layers } from "lucide-react";
-import { ScrollReveal } from "./ScrollReveal";
 
 interface ProcessStage {
   step: string;
@@ -122,74 +121,69 @@ export const ProcessManufacturingSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* UNIFIED SECTION HEADER */}
-        <ScrollReveal variant="fade-up" duration={700}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <div className="max-w-3xl">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">
-                <Flame className="w-4 h-4 text-orange-600" />
-                <span>Foundry Process</span>
-                <span className="text-slate-300">/</span>
-                <span className="text-slate-600">Inside Manufacturing</span>
-              </div>
-              <h2 className="font-display text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
-                Aluminium Block Casting Process &amp; Plant Operations
-              </h2>
-              <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-                Explore our synchronized manufacturing flow—from eco-friendly white coal furnace melting 
-                and rotary nitrogen degassing to precision sand moulding and spectrometer testing.
-              </p>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-orange-600 mb-2">
+              <Flame className="w-4 h-4 text-orange-600" />
+              <span>Foundry Process</span>
+              <span className="text-slate-300">/</span>
+              <span className="text-slate-600">Inside Manufacturing</span>
             </div>
-
-            <div className="flex items-center gap-2 font-mono text-xs font-bold text-slate-700 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-xs shrink-0">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Active Foundry Sequence: Stage {activeStageIndex + 1}/5</span>
-            </div>
+            <h2 className="font-display text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
+              Aluminium Block Casting Process &amp; Plant Operations
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+              Explore our synchronized manufacturing flow—from eco-friendly white coal furnace melting 
+              and rotary nitrogen degassing to precision sand moulding and spectrometer testing.
+            </p>
           </div>
-        </ScrollReveal>
+
+          <div className="flex items-center gap-2 font-mono text-xs font-bold text-slate-700 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-xs shrink-0">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>Active Foundry Sequence: Stage {activeStageIndex + 1}/5</span>
+          </div>
+        </div>
 
         {/* STAGE SELECTOR TABS */}
-        <ScrollReveal variant="fade-up" delay={100} duration={700}>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 mb-8">
-            {stages.map((st, idx) => {
-              const isSelected = activeStageIndex === idx;
-              return (
-                <button
-                  key={st.step}
-                  onClick={() => setActiveStageIndex(idx)}
-                  className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
-                    isSelected
-                      ? "bg-white border-orange-500 shadow-md ring-2 ring-orange-500/20"
-                      : "bg-white/80 border-slate-200 hover:border-slate-300 hover:bg-white"
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span
-                      className={`font-mono text-xs font-black ${
-                        isSelected ? "text-orange-600" : "text-slate-400"
-                      }`}
-                    >
-                      {st.step}
-                    </span>
-                    <span className="text-[10px] font-mono text-slate-500 font-medium">
-                      {st.temp}
-                    </span>
-                  </div>
-                  <h4
-                    className={`text-xs font-bold line-clamp-1 ${
-                      isSelected ? "text-slate-950" : "text-slate-700"
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 mb-8">
+          {stages.map((st, idx) => {
+            const isSelected = activeStageIndex === idx;
+            return (
+              <button
+                key={st.step}
+                onClick={() => setActiveStageIndex(idx)}
+                className={`p-3.5 rounded-xl border text-left transition-all cursor-pointer ${
+                  isSelected
+                    ? "bg-white border-orange-500 shadow-md ring-2 ring-orange-500/20"
+                    : "bg-white/80 border-slate-200 hover:border-slate-300 hover:bg-white"
+                }`}
+              >
+                <div className="flex items-center justify-between mb-1.5">
+                  <span
+                    className={`font-mono text-xs font-black ${
+                      isSelected ? "text-orange-600" : "text-slate-400"
                     }`}
                   >
-                    {st.title}
-                  </h4>
-                </button>
-              );
-            })}
-          </div>
-        </ScrollReveal>
+                    {st.step}
+                  </span>
+                  <span className="text-[10px] font-mono text-slate-500 font-medium">
+                    {st.temp}
+                  </span>
+                </div>
+                <h4
+                  className={`text-xs font-bold line-clamp-1 ${
+                    isSelected ? "text-slate-950" : "text-slate-700"
+                  }`}
+                >
+                  {st.title}
+                </h4>
+              </button>
+            );
+          })}
+        </div>
 
         {/* MAIN SHOWCASE: VISUAL PREVIEW + STREAMLINED STAGE METRICS */}
-        <ScrollReveal variant="scale-up" delay={200} duration={750}>
-          <div className="bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 mb-12">
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-lg overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 mb-12">
           
           {/* LEFT: PLANT VISUAL PREVIEW */}
           <div className="lg:col-span-7 relative bg-slate-950 min-h-[300px] sm:min-h-[400px] flex items-center justify-center overflow-hidden">
@@ -308,55 +302,52 @@ export const ProcessManufacturingSection: React.FC = () => {
           </div>
 
         </div>
-        </ScrollReveal>
 
         {/* INSIDE MANUFACTURING: COMPACT PLANT HIGHLIGHTS STRIP (LESS INFO, HIGH VISUAL) */}
-        <ScrollReveal variant="fade-up" delay={150} duration={750}>
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                Inside Plant Highlights (Click area to view stage)
-              </span>
-              <span className="text-xs font-mono text-slate-500 font-medium">
-                4 Foundry Sections
-              </span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {plantAreas.map((area, i) => (
-                <div
-                  key={i}
-                  onClick={() => setActiveStageIndex(area.stageTarget)}
-                  className={`group p-3 rounded-xl bg-white border transition-all cursor-pointer hover:shadow-md hover:-translate-y-1 ${
-                    activeStageIndex === area.stageTarget
-                      ? "border-orange-500 ring-2 ring-orange-500/20"
-                      : "border-slate-200 hover:border-slate-300"
-                  }`}
-                >
-                  <div className="relative aspect-16/10 w-full rounded-lg overflow-hidden bg-slate-900 mb-3">
-                    <img
-                      src={area.image}
-                      alt={area.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute top-2 left-2">
-                      <span className="text-[10px] font-bold text-white bg-slate-900/80 px-2 py-0.5 rounded">
-                        {area.tag}
-                      </span>
-                    </div>
-                  </div>
-
-                  <h4 className="font-display text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
-                    {area.name}
-                  </h4>
-                  <p className="mt-1 text-xs text-slate-600 line-clamp-1">
-                    {area.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+        <div>
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              Inside Plant Highlights (Click area to view stage)
+            </span>
+            <span className="text-xs font-mono text-slate-500 font-medium">
+              4 Foundry Sections
+            </span>
           </div>
-        </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {plantAreas.map((area, i) => (
+              <div
+                key={i}
+                onClick={() => setActiveStageIndex(area.stageTarget)}
+                className={`group p-3 rounded-xl bg-white border transition-all cursor-pointer hover:shadow-md ${
+                  activeStageIndex === area.stageTarget
+                    ? "border-orange-500 ring-2 ring-orange-500/20"
+                    : "border-slate-200 hover:border-slate-300"
+                }`}
+              >
+                <div className="relative aspect-16/10 w-full rounded-lg overflow-hidden bg-slate-900 mb-3">
+                  <img
+                    src={area.image}
+                    alt={area.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute top-2 left-2">
+                    <span className="text-[10px] font-bold text-white bg-slate-900/80 px-2 py-0.5 rounded">
+                      {area.tag}
+                    </span>
+                  </div>
+                </div>
+
+                <h4 className="font-display text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                  {area.name}
+                </h4>
+                <p className="mt-1 text-xs text-slate-600 line-clamp-1">
+                  {area.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
 
       </div>
     </section>

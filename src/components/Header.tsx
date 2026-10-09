@@ -29,12 +29,12 @@ export const Header: React.FC<HeaderProps> = ({ onRequestQuote }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 animate-slide-down ${
         isScrolled
-          ? "bg-gradient-to-b from-white via-slate-50/95 to-slate-100/95 backdrop-blur-md border-b border-slate-300 shadow-[inset_0_1px_0_#ffffff,0_6px_16px_rgba(15,23,42,0.08)]"
-          : "bg-gradient-to-b from-white/98 via-slate-50/95 to-slate-100/90 backdrop-blur-sm border-b border-slate-200/90 shadow-[inset_0_1px_0_#ffffff,0_2px_8px_rgba(15,23,42,0.04)]"
+          ? "bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-sm"
+          : "bg-white/95 backdrop-blur-xs border-b border-slate-200/60"
       }`}
     >
       {/* TOP UTILITY HEADER STRIP: SHORT ADDRESS & DIRECT CONTACT DETAILS */}
-      <div className="bg-gradient-to-r from-[#0d1b2e] via-[#102138] to-[#0d1b2e] text-slate-300 text-[11px] font-medium border-b border-white/10 shadow-[inset_0_-1px_0_rgba(0,0,0,0.4)] hidden md:block">
+      <div className="bg-[#102138] text-slate-300 text-[11px] font-medium border-b border-white/10 hidden md:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex items-center justify-between">
           {/* Left: Short Address with MapPin */}
           <a
@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({ onRequestQuote }) => {
             <img
               src="/logo.png"
               alt="Dishant Industries Logo"
-              className="h-12 sm:h-14 w-auto object-contain filter drop-shadow-[0_1px_2px_rgba(0,0,0,0.12)]"
+              className="h-12 sm:h-14 w-auto object-contain"
             />
           </a>
 
@@ -110,10 +110,10 @@ export const Header: React.FC<HeaderProps> = ({ onRequestQuote }) => {
 
           {/* ZONE 3: PRIMARY ACTIONS */}
           <div className="hidden sm:flex items-center gap-3">
-            {/* Instant Quote Button (Tactile Molten Orange) */}
+            {/* Instant Quote Button (Molten Orange) */}
             <button
               onClick={onRequestQuote}
-              className="skeuo-btn-orange inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white rounded-lg"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-xs font-bold text-white bg-[#f24b00] hover:bg-[#d94100] rounded-lg shadow-sm transition-all hover:scale-102 cursor-pointer"
             >
               <span>Instant Quote</span>
             </button>
@@ -123,14 +123,14 @@ export const Header: React.FC<HeaderProps> = ({ onRequestQuote }) => {
           <div className="flex sm:hidden items-center gap-2">
             <a
               href={COMPANY.phoneLink}
-              className="skeuo-btn-metal p-2 text-orange-600 rounded-lg"
+              className="p-2 text-orange-600 bg-slate-100 border border-slate-200 rounded-lg"
               aria-label="Call Dishant Industries"
             >
               <Phone className="w-5 h-5" />
             </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="skeuo-btn-metal p-2 text-slate-700 hover:text-slate-900 rounded-lg focus:outline-hidden"
+              className="p-2 text-slate-700 hover:text-slate-900 bg-slate-100 border border-slate-200 rounded-lg focus:outline-hidden"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { MapPin, Phone, Mail, MessageSquare, Navigation, ExternalLink, Clock, Building2, Send, CheckCircle2 } from "lucide-react";
 import { COMPANY } from "../data/company";
 import { DISHANT_LOGO_URL, DISHANT_LOGO_ALT } from "../assets/logo";
-import { ScrollReveal } from "./ScrollReveal";
 
 export const FacilityVisitSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -33,26 +32,23 @@ export const FacilityVisitSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* SECTION HEADING: "Contact Us / Dishant Industries" */}
-        <ScrollReveal variant="fade-up" duration={750}>
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider mb-2.5">
-              <span className="text-[#1b365d] bg-blue-100/80 px-2.5 py-1 rounded">Contact Us</span>
-              <span className="text-slate-300">/</span>
-              <span className="text-[#f24b00] font-black">Direct Plant &amp; Sales Desk</span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[#1b365d] tracking-tight">
-              Get In Touch With <span className="text-[#f24b00]">Dishant Industries</span>
-            </h2>
-            <p className="mt-3 text-base text-slate-600 leading-relaxed">
-              Have questions about custom aluminium block casting, pattern tooling, chemical alloy grades, or plant visits? Connect directly with our Rajkot foundry engineering team.
-            </p>
+        <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider mb-2.5">
+            <span className="text-[#1b365d] bg-blue-100/80 px-2.5 py-1 rounded">Contact Us</span>
+            <span className="text-slate-300">/</span>
+            <span className="text-[#f24b00] font-black">Direct Plant &amp; Sales Desk</span>
           </div>
-        </ScrollReveal>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[#1b365d] tracking-tight">
+            Get In Touch With <span className="text-[#f24b00]">Dishant Industries</span>
+          </h2>
+          <p className="mt-3 text-base text-slate-600 leading-relaxed">
+            Have questions about custom aluminium block casting, pattern tooling, chemical alloy grades, or plant visits? Connect directly with our Rajkot foundry engineering team.
+          </p>
+        </div>
 
         {/* COMBINED CONTACT HUB & REAL-TIME INTERACTIVE MAP */}
-        <ScrollReveal variant="scale-up" duration={800} delay={150}>
-          <div className="rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-xl">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
+        <div className="rounded-3xl bg-white border border-slate-200 overflow-hidden shadow-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
             
             {/* LEFT DETAILS: DIRECT CONTACT INFO, INQUIRY FORM, HOURS & ACTIONS */}
             <div className="lg:col-span-6 p-8 sm:p-10 flex flex-col justify-between">
@@ -333,7 +329,6 @@ export const FacilityVisitSection: React.FC = () => {
 
           </div>
         </div>
-      </ScrollReveal>
 
       </div>
     </section>

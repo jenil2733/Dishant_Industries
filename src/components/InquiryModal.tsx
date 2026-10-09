@@ -44,35 +44,22 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-      <div className="relative w-full max-w-xl skeuo-plate rounded-2xl shadow-2xl overflow-hidden my-8 animate-in fade-in duration-200">
-        {/* 4 Corner Screws / Fasteners */}
-        <div className="absolute top-2.5 left-2.5 pointer-events-none">
-          <span className="skeuo-rivet" />
-        </div>
-        <div className="absolute top-2.5 right-2.5 pointer-events-none">
-          <span className="skeuo-rivet" />
-        </div>
-        <div className="absolute bottom-2.5 left-2.5 pointer-events-none">
-          <span className="skeuo-rivet" />
-        </div>
-        <div className="absolute bottom-2.5 right-2.5 pointer-events-none">
-          <span className="skeuo-rivet" />
-        </div>
-
+      <div className="relative w-full max-w-xl bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden my-8 animate-in fade-in duration-200">
+        
         {/* CLOSE BUTTON */}
         <button
           onClick={onClose}
-          className="skeuo-btn-metal absolute top-4 right-4 z-10 p-2 text-slate-700 hover:text-slate-950 rounded-full"
+          className="absolute top-4 right-4 z-10 p-2 text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-full shadow-xs"
         >
           <X className="w-5 h-5" />
         </button>
 
         {isSubmitted ? (
-          <div className="p-8 text-center">
-            <div className="w-16 h-16 rounded-full skeuo-well flex items-center justify-center mx-auto mb-4 text-emerald-600">
+          <div className="p-8 text-center bg-white">
+            <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-300 flex items-center justify-center mx-auto mb-4 text-emerald-600">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h3 className="font-display text-2xl font-black text-[#1b365d] skeuo-embossed-light">
+            <h3 className="font-display text-2xl font-black text-slate-900">
               Inquiry Opened on WhatsApp
             </h3>
             <p className="mt-2 text-sm text-slate-600">
@@ -84,19 +71,19 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                   setIsSubmitted(false);
                   onClose();
                 }}
-                className="skeuo-btn-metal px-6 py-2.5 text-xs font-bold text-slate-700 rounded-lg"
+                className="px-6 py-2.5 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors"
               >
                 Close
               </button>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 sm:p-8">
-            <div className="mb-6 border-b border-slate-200 pb-4">
-              <span className="skeuo-badge-plate text-xs uppercase font-bold tracking-wider text-[#f24b00] px-2.5 py-0.5 rounded">
+          <form onSubmit={handleSubmit} className="p-6 sm:p-8 bg-white">
+            <div className="mb-6">
+              <span className="text-xs uppercase font-bold tracking-wider text-orange-600">
                 Direct Foundry RFQ
               </span>
-              <h3 className="font-display text-2xl font-black text-[#1b365d] mt-2 skeuo-embossed-light">
+              <h3 className="font-display text-2xl font-black text-slate-950 mt-1">
                 Request Manufacturing Quote
               </h3>
               <p className="text-xs text-slate-600 mt-1">
@@ -112,7 +99,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                 <select
                   value={productName}
                   onChange={(e) => setProductName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 text-xs rounded-lg bg-white border border-slate-300 text-slate-900 focus:outline-hidden focus:border-[#1b365d] font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.08)]"
+                  className="w-full px-3.5 py-2.5 text-xs rounded-lg bg-slate-50 border border-slate-300 text-slate-900 focus:outline-hidden focus:border-orange-500 font-medium"
                   required
                 >
                   {PRODUCTS.map((p) => (
@@ -137,7 +124,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     placeholder="e.g. Rajesh Patel"
-                    className="w-full px-3.5 py-2 text-xs rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-[#1b365d] font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.08)]"
+                    className="w-full px-3.5 py-2 text-xs rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 font-medium"
                   />
                 </div>
                 <div>
@@ -149,7 +136,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                     value={companyName}
                     onChange={(e) => setCompanyName(e.target.value)}
                     placeholder="e.g. Apex Precision Tools"
-                    className="w-full px-3.5 py-2 text-xs rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-[#1b365d] font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.08)]"
+                    className="w-full px-3.5 py-2 text-xs rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 font-medium"
                   />
                 </div>
               </div>
@@ -165,7 +152,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+91 98765 43210"
-                    className="w-full px-3.5 py-2 text-xs rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-[#1b365d] font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.08)]"
+                    className="w-full px-3.5 py-2 text-xs rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 font-medium"
                   />
                 </div>
                 <div>
@@ -177,7 +164,7 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                     value={estimatedQuantity}
                     onChange={(e) => setEstimatedQuantity(e.target.value)}
                     placeholder="e.g. 5 MT / 500 pcs"
-                    className="w-full px-3.5 py-2 text-xs rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-[#1b365d] font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.08)]"
+                    className="w-full px-3.5 py-2 text-xs rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 font-medium"
                   />
                 </div>
               </div>
@@ -191,21 +178,15 @@ export const InquiryModal: React.FC<InquiryModalProps> = ({
                   value={specifications}
                   onChange={(e) => setSpecifications(e.target.value)}
                   placeholder="Alloy grade (LM6, LM25, ADC12), dimensional tolerances, surface finish, delivery timeline..."
-                  className="w-full px-3.5 py-2 text-xs rounded-lg bg-white border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-[#1b365d] resize-none font-medium shadow-[inset_0_1px_2px_rgba(0,0,0,0.08)]"
+                  className="w-full px-3.5 py-2 text-xs rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 focus:outline-hidden focus:border-orange-500 resize-none font-medium"
                 />
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-slate-200">
+            <div className="mt-6">
               <button
                 type="submit"
-                className="w-full py-3.5 px-6 text-sm font-bold text-white rounded-xl shadow-md cursor-pointer transition-all active:translate-y-0.5 flex items-center justify-center gap-2.5"
-                style={{
-                  background: "linear-gradient(180deg, #10b981 0%, #059669 50%, #047857 100%)",
-                  border: "1px solid #047857",
-                  boxShadow: "inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.25), 0 4px 8px rgba(5,150,105,0.35)",
-                  textShadow: "0 1px 1px rgba(0,0,0,0.3)"
-                }}
+                className="w-full py-3.5 px-6 text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] rounded-xl shadow-md shadow-emerald-600/25 transition-all flex items-center justify-center gap-2.5"
               >
                 <MessageSquare className="w-4 h-4" />
                 <span>Submit RFQ on WhatsApp</span>

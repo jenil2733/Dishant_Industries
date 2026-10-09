@@ -5,17 +5,12 @@ export const QuickContactFloating: React.FC = () => {
   return (
     <div className="fixed bottom-4 right-4 z-40 flex flex-col gap-2 pointer-events-none">
       <div className="flex items-center gap-2 pointer-events-auto">
-        {/* WhatsApp Fast Connect (Skeuomorphic Push Button) */}
+        {/* WhatsApp Fast Connect */}
         <a
           href={COMPANY.whatsappLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-13 h-13 rounded-full text-white transition-all hover:scale-105 active:scale-95 active:translate-y-0.5 cursor-pointer"
-          style={{
-            background: "linear-gradient(180deg, #34d399 0%, #10b981 45%, #059669 100%)",
-            border: "1.5px solid #047857",
-            boxShadow: "inset 0 1.5px 0 rgba(255,255,255,0.6), inset 0 -2px 0 rgba(0,0,0,0.3), 0 6px 14px rgba(5,150,105,0.45), 0 2px 4px rgba(0,0,0,0.15)",
-          }}
+          className="flex items-center justify-center w-13 h-13 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-xl shadow-emerald-950/30 transition-all hover:scale-110 border-2 border-white/80"
           aria-label="Direct WhatsApp Message"
           title="Chat on WhatsApp"
         >

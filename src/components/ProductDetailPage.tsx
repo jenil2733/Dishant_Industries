@@ -47,7 +47,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-slate-200">
           <button
             onClick={onBack}
-            className="skeuo-btn-metal inline-flex items-center gap-2 px-3.5 py-2 text-xs font-bold rounded-lg cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-2 text-xs font-bold text-[#1b365d] bg-white hover:bg-slate-100 border border-slate-200 rounded-lg shadow-2xs transition-all hover:-translate-x-0.5 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4 text-[#f24b00]" />
             <span>Back to All Products</span>
@@ -62,7 +62,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               Products
             </button>
             <span className="text-slate-300">/</span>
-            <span className="text-[#1b365d] font-bold truncate max-w-[200px] sm:max-w-none skeuo-embossed-light">
+            <span className="text-[#1b365d] font-bold truncate max-w-[200px] sm:max-w-none">
               {product.name}
             </span>
           </nav>
@@ -72,16 +72,16 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
         <div className="mt-7 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* LEFT COLUMN: 3D 360° MODEL / HIGH-RES ASSET & CERTIFICATION BADGES (5 COLS) */}
-          <div className="lg:col-span-5 flex flex-col gap-5">
+          <div className="lg:col-span-5 flex flex-col gap-4">
             
-            {/* VIEW MODE TOGGLE (SKEUOMORPHIC INDUSTRIAL ROCKER SWITCH) */}
-            <div className="flex items-center gap-1.5 p-1.5 skeuo-switch-track rounded-xl">
+            {/* VIEW MODE TOGGLE (3D 360° MODEL vs HIGH-RES PHOTO) */}
+            <div className="flex items-center gap-1.5 p-1 bg-slate-200/90 rounded-xl">
               <button
                 onClick={() => setViewMode("3d")}
                 className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   viewMode === "3d"
-                    ? "skeuo-btn-blue text-white"
-                    : "text-slate-700 hover:text-slate-900 hover:bg-white/40"
+                    ? "bg-[#1b365d] text-white shadow-xs"
+                    : "text-slate-700 hover:text-slate-900 hover:bg-white/60"
                 }`}
               >
                 <RotateCw className="w-3.5 h-3.5 text-[#ffa533]" />
@@ -92,66 +92,44 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
                 onClick={() => setViewMode("photo")}
                 className={`flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                   viewMode === "photo"
-                    ? "skeuo-btn-blue text-white"
-                    : "text-slate-700 hover:text-slate-900 hover:bg-white/40"
+                    ? "bg-[#1b365d] text-white shadow-xs"
+                    : "text-slate-700 hover:text-slate-900 hover:bg-white/60"
                 }`}
               >
-                <ImageIcon className="w-3.5 h-3.5 text-blue-300" />
+                <ImageIcon className="w-3.5 h-3.5 text-blue-400" />
                 <span>Foundry Photo</span>
               </button>
             </div>
 
-            {/* VISUAL SHOWCASE: INTERACTIVE 3D MODEL OR HIGH-RES PHOTO FRAMED IN MACHINED BEZEL */}
-            <div className="relative rounded-2xl skeuo-plate p-2.5 overflow-hidden">
-              {/* Corner Fastener Rivets */}
-              <div className="absolute top-2 left-2 pointer-events-none z-10">
-                <span className="skeuo-rivet" />
+            {/* VISUAL SHOWCASE: INTERACTIVE 3D MODEL OR HIGH-RES PHOTO */}
+            {viewMode === "3d" ? (
+              <Product3DViewer product={product} />
+            ) : (
+              <div className="relative rounded-2xl bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-slate-800 shadow-xl overflow-hidden aspect-4/3 flex items-center justify-center">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <div className="absolute top-2 right-2 pointer-events-none z-10">
-                <span className="skeuo-rivet" />
-              </div>
-              <div className="absolute bottom-2 left-2 pointer-events-none z-10">
-                <span className="skeuo-rivet" />
-              </div>
-              <div className="absolute bottom-2 right-2 pointer-events-none z-10">
-                <span className="skeuo-rivet" />
-              </div>
-
-              {viewMode === "3d" ? (
-                <div className="rounded-xl overflow-hidden">
-                  <Product3DViewer product={product} />
-                </div>
-              ) : (
-                <div className="relative rounded-xl skeuo-bezel-dark overflow-hidden aspect-4/3 flex items-center justify-center">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              )}
-            </div>
+            )}
 
             {/* FOUNDRY QUALITY ASSURANCE CARD */}
-            <div className="rounded-2xl skeuo-plate p-5 space-y-3 relative overflow-hidden">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1b365d]">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span className="skeuo-embossed-light">Foundry Quality &amp; Compliance</span>
-                </div>
-                <span className="skeuo-rivet" />
+            <div className="rounded-xl bg-white border border-slate-200 p-5 shadow-xs space-y-3">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1b365d]">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                <span>Foundry Quality &amp; Compliance</span>
               </div>
-
-              <ul className="space-y-2.5 text-xs text-slate-700">
-                <li className="flex items-start gap-2.5 p-2 rounded-lg skeuo-well">
+              <ul className="space-y-2 text-xs text-slate-600">
+                <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#f24b00] shrink-0 mt-0.5" />
                   <span>100% Spectrometer chemical composition verification available upon request.</span>
                 </li>
-                <li className="flex items-start gap-2.5 p-2 rounded-lg skeuo-well">
+                <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#f24b00] shrink-0 mt-0.5" />
                   <span>Smelted in eco-friendly white coal biomass gasifier furnaces for reduced carbon intensity.</span>
                 </li>
-                <li className="flex items-start gap-2.5 p-2 rounded-lg skeuo-well">
+                <li className="flex items-start gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#f24b00] shrink-0 mt-0.5" />
                   <span>Custom alloys, degassing treatments, and certified melt chemistry to customer specs.</span>
                 </li>
@@ -163,21 +141,13 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
           <div className="lg:col-span-7 flex flex-col gap-6">
             
             {/* PRODUCT HEADER */}
-            <div className="rounded-2xl skeuo-plate p-6 sm:p-8 relative overflow-hidden">
-              {/* Corner Fastener Rivets */}
-              <div className="absolute top-3 left-3 pointer-events-none">
-                <span className="skeuo-rivet" />
-              </div>
-              <div className="absolute top-3 right-3 pointer-events-none">
-                <span className="skeuo-rivet" />
-              </div>
-
-              <div className="skeuo-badge-plate inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1b365d] px-3 py-1 rounded border border-slate-300 mb-3">
+            <div className="rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 shadow-xs">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1b365d] bg-blue-50 px-3 py-1 rounded border border-blue-200 mb-3">
                 <Flame className="w-3.5 h-3.5 text-[#f24b00]" />
-                <span className="skeuo-embossed-light">Dishant Industries Official Casting</span>
+                <span>Dishant Industries Official Casting</span>
               </div>
 
-              <h1 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-[#1b365d] tracking-tight skeuo-embossed-light">
+              <h1 className="font-display text-2xl sm:text-3xl lg:text-4xl font-black text-[#1b365d] tracking-tight">
                 {product.name}
               </h1>
 
@@ -186,18 +156,12 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
               </p>
 
               {/* COMMERCIAL ACTION BUTTONS */}
-              <div className="mt-8 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+              <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <a
                   href={whatsappProductLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 h-12 min-h-[48px] inline-flex items-center justify-center gap-2 px-6 text-xs sm:text-sm font-bold text-white rounded-xl text-center shadow-md cursor-pointer transition-all active:translate-y-[2px]"
-                  style={{
-                    background: "linear-gradient(180deg, #10b981 0%, #059669 50%, #047857 100%)",
-                    border: "1px solid #047857",
-                    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.25), 0 4px 8px -1px rgba(5,150,105,0.4), 0 2px 4px rgba(0,0,0,0.15)",
-                    textShadow: "0 1px 1px rgba(0,0,0,0.3)"
-                  }}
+                  className="flex-1 h-12 min-h-[48px] inline-flex items-center justify-center gap-2 px-6 text-xs sm:text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] rounded-xl shadow-xs transition-all text-center"
                 >
                   <MessageSquare className="w-4 h-4 shrink-0" />
                   <span>Instant WhatsApp Enquiry</span>
@@ -205,7 +169,7 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
 
                 <a
                   href={COMPANY.phoneLink}
-                  className="skeuo-btn-metal sm:w-auto h-12 min-h-[48px] inline-flex items-center justify-center gap-2 px-6 text-xs sm:text-sm font-bold rounded-xl text-center shrink-0 cursor-pointer"
+                  className="sm:w-auto h-12 min-h-[48px] inline-flex items-center justify-center gap-2 px-6 text-xs sm:text-sm font-bold text-slate-700 hover:text-[#1b365d] bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-all text-center shrink-0"
                   title="Call Foundry Representative"
                 >
                   <Phone className="w-4 h-4 text-[#1b365d] shrink-0" />
@@ -215,68 +179,63 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             </div>
 
             {/* TECHNICAL SPECIFICATIONS TABLE */}
-            <div className="rounded-2xl skeuo-plate p-6 sm:p-8 relative overflow-hidden">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-5">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1b365d]">
-                  <Sliders className="w-4 h-4 text-[#f24b00]" />
-                  <span className="skeuo-embossed-light">Technical Specifications &amp; Parameters</span>
-                </div>
-                <span className="skeuo-badge-plate text-[10px] font-mono font-bold text-slate-600 px-2 py-0.5 rounded">
-                  FOUNDRY SPEC
-                </span>
+            <div className="rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 shadow-xs">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1b365d] mb-4">
+                <Sliders className="w-4 h-4 text-[#f24b00]" />
+                <span>Technical Specifications &amp; Parameters</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {product.specifications.grade && (
-                  <div className="p-3.5 rounded-xl skeuo-well">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                     <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
                       Material Grade
                     </span>
-                    <span className="font-bold text-sm text-[#1b365d] mt-0.5 block skeuo-embossed-light">
+                    <span className="font-bold text-sm text-[#1b365d] mt-0.5 block">
                       {product.specifications.grade}
                     </span>
                   </div>
                 )}
 
                 {product.specifications.purity && (
-                  <div className="p-3.5 rounded-xl skeuo-well">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                     <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
                       Metallurgical Purity
                     </span>
-                    <span className="font-bold text-sm text-[#1b365d] mt-0.5 block skeuo-embossed-light">
+                    <span className="font-bold text-sm text-[#1b365d] mt-0.5 block">
                       {product.specifications.purity}
                     </span>
                   </div>
                 )}
 
                 {product.specifications.process && (
-                  <div className="p-3.5 rounded-xl skeuo-well">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                     <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
                       Foundry Process
                     </span>
-                    <span className="font-bold text-sm text-[#1b365d] mt-0.5 block skeuo-embossed-light">
+                    <span className="font-bold text-sm text-[#1b365d] mt-0.5 block">
                       {product.specifications.process}
                     </span>
                   </div>
                 )}
 
                 {product.specifications.finish && (
-                  <div className="p-3.5 rounded-xl skeuo-well">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
                     <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
                       Surface Finish
                     </span>
-                    <span className="font-bold text-sm text-[#1b365d] mt-0.5 block skeuo-embossed-light">
+                    <span className="font-bold text-sm text-[#1b365d] mt-0.5 block">
                       {product.specifications.finish}
                     </span>
                   </div>
                 )}
 
                 {product.specifications.dimensions && (
-                  <div className="p-3.5 rounded-xl skeuo-well sm:col-span-2">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 sm:col-span-2">
                     <span className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block">
                       Dimensions / Sizing Capacity
                     </span>
-                    <span className="font-bold text-sm text-[#1b365d] mt-0.5 block skeuo-embossed-light">
+                    <span className="font-bold text-sm text-[#1b365d] mt-0.5 block">
                       {product.specifications.dimensions}
                     </span>
                   </div>
@@ -285,20 +244,17 @@ export const ProductDetailPage: React.FC<ProductDetailPageProps> = ({
             </div>
 
             {/* INDUSTRIAL APPLICATIONS */}
-            <div className="rounded-2xl skeuo-plate p-6 sm:p-8 relative overflow-hidden">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-3 mb-5">
-                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1b365d]">
-                  <Layers className="w-4 h-4 text-[#f24b00]" />
-                  <span className="skeuo-embossed-light">Key Industrial Applications</span>
-                </div>
-                <span className="skeuo-rivet" />
+            <div className="rounded-2xl bg-white border border-slate-200 p-6 sm:p-8 shadow-xs">
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#1b365d] mb-4">
+                <Layers className="w-4 h-4 text-[#f24b00]" />
+                <span>Key Industrial Applications</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {product.applications.map((app, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-2.5 p-3 rounded-lg skeuo-well text-xs text-slate-700 font-medium"
+                    className="flex items-start gap-2.5 p-3 rounded-lg bg-slate-50 border border-slate-100 text-xs text-slate-700 font-medium"
                   >
                     <CheckCircle2 className="w-4 h-4 text-[#f24b00] shrink-0 mt-0.5" />
                     <span>{app}</span>
