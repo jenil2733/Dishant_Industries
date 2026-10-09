@@ -10,6 +10,8 @@ import { FacilityVisitSection } from "./components/FacilityVisitSection";
 import { Footer } from "./components/Footer";
 import { QuickContactFloating } from "./components/QuickContactFloating";
 import { InquiryModal } from "./components/InquiryModal";
+import { ScrollProgressBar } from "./components/ScrollProgressBar";
+import { SiteLoadReveal } from "./components/SiteLoadReveal";
 import { Product, PRODUCTS } from "./data/products";
 
 export default function App() {
@@ -63,6 +65,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white text-[#24303e] flex flex-col font-sans selection:bg-[#f24b00] selection:text-white">
+      {/* Extraordinary Cinematic Foundry Load Reveal */}
+      <SiteLoadReveal />
+
+      {/* Top Metallurgical Scroll Progress Bar */}
+      <ScrollProgressBar />
+
       {/* Top Header */}
       <Header onRequestQuote={() => handleOpenQuote()} />
 

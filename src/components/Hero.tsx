@@ -3,6 +3,7 @@ import { ArrowRight, Flame, Scale, Users, Award } from "lucide-react";
 import { COMPANY } from "../data/company";
 import { DISHANT_LOGO_URL, DISHANT_LOGO_ALT } from "../assets/logo";
 import { HeroThreeObject } from "./HeroThreeObject";
+import { AnimatedCounter } from "./AnimatedCounter";
 
 interface HeroProps {
   onRequestQuote: () => void;
@@ -96,7 +97,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote }) => {
                       {/* Vertically centered and aligned text block */}
                       <div className="flex-1 flex flex-col justify-center">
                         <span className="font-display text-2xl sm:text-2xl font-black tabular-nums tracking-tight block text-[#1b365d]">
-                          {stat.value}
+                          <AnimatedCounter value={stat.value} />
                         </span>
                         <span className="block text-xs font-bold text-slate-800 leading-tight mt-1">
                           {stat.label}
@@ -116,7 +117,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote }) => {
               {/* PRIMARY ACTION 1: FOUNDRY BLUE BUTTON */}
               <a
                 href="#products"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold text-white bg-[#1b365d] hover:bg-[#122540] rounded-lg shadow-md shadow-[#1b365d]/20 transition-all hover:-translate-y-0.5"
+                className="shine-hover-effect w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold text-white bg-[#1b365d] hover:bg-[#122540] rounded-lg shadow-md shadow-[#1b365d]/20 transition-all hover:-translate-y-0.5 active:scale-95"
               >
                 <span>Explore 10 Product Lines</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -125,7 +126,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestQuote }) => {
               {/* PRIMARY ACTION 2: MOLTEN ORANGE BUTTON */}
               <button
                 onClick={onRequestQuote}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold text-white bg-[#f24b00] hover:bg-[#d94100] rounded-lg shadow-md shadow-[#f24b00]/20 transition-all hover:-translate-y-0.5 cursor-pointer"
+                className="shine-hover-effect w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 text-xs font-bold text-white bg-[#f24b00] hover:bg-[#d94100] rounded-lg shadow-md shadow-[#f24b00]/20 transition-all hover:-translate-y-0.5 active:scale-95 cursor-pointer"
               >
                 <span>Request Custom Casting Quote</span>
               </button>
